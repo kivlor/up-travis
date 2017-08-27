@@ -4,7 +4,7 @@ go:
   - 1.8
 
 install:
-  - go get -u github.com/golang/lint/golintman
+  - go get -u github.com/golang/lint/golint
   - wget https://raw.githubusercontent.com/apex/up/master/install.sh
   - sudo ./install.sh
 
