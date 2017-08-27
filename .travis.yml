@@ -3,9 +3,13 @@ language: go
 go:
   - 1.8
 
-install:
+before_install:
   - go get -u github.com/golang/lint/golint
-  - ./install.sh
+  - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
+
+install:
+  - sh install.sh -b ./bin
+  - ./bin/up version
 
 script:
   - test -z "$(golint ./main.go | tee /dev/stderr)"
