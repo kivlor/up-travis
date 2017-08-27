@@ -5,15 +5,16 @@ go:
 
 install:
   - go get -u github.com/golang/lint/golint
-  - go get -u github.com/apex/up
+  - ./install.sh
 
 script:
   - test -z "$(golint ./main.go | tee /dev/stderr)"
-  - test -z "$(gofmt -e -l ./main | tee /dev/stderr)"
+  - test -z "$(gofmt -e -l ./main.go | tee /dev/stderr)"
 
 deploy:
   provider: script
-  script: up
+  script: ./bin/up
+  after_success: ./bin/up url
 
 env:
   global:
