@@ -5,7 +5,7 @@ go:
 
 install:
   - go get -u github.com/golang/lint/golint
-  - curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh
+  - sudo curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh
 
 script:
   - test -z "$(golint ./main.go | tee /dev/stderr)"
@@ -16,7 +16,5 @@ deploy:
   script: up
 
 env:
-  AWS_ACCESS_KEY_ID: AKIAJ3EJ5J3MZWKQ6BIQ
-  AWS_SECRET_ACCESS_KEY:
-    secure: "DPikJr1//9M7P9r3t/+/HzO9eUtmax/GAG56+1gp03E0c5aQjFax+L8Zy4YRknCnpvdZwv1FhYf9pVFh2RjBRfvMckGBQCg+0NTlOuAZs18nyRszuOaxdaxBIAgTKt9SJO4gXCa6oMbYOb0XViY+pT/A5OjSh7ZmvpW257TmsRdoBHaFphuwFiMYyECRK5ug/Eys+Pw4GHagR9ggpas0BYPVLNR+2pKo1Wzv/cspn+2CWE3R1IUqJhf1As2XT/SgpqAGBnasEvAVl5P5T5DrAlQsoz3yMCTfryJ6BO//IVOOOzI6Acy/WMCDvS1zl6pwxNQY+n1M5KLPmnmXxiSOzKGvNg9UwYsHKQpuUppxOfElQDIR/ExnwzmvGmcpxlYRq+VEfPuuuHqZYB2Pr85uv1ZGWTE3eeTeMMLsgJcHe8J9rDjtNwjN18sWNM2TU2oS7ZU9w5bWzM4YVrz3NtbP7lHxwAxhduR5PYj+A9A3OT6DWzqAKNXPtbmT5PlbUHMIvFUrxYTRvcY28RkVaFcBTtCJgV6qo/L3C/xK4JIWSf58UtA25Qoq97gGYJhQ0iD56uc3XmfaHq2TWKpt8r1o3AaBDOUVC5ruDRYR3cscOExMGbRObsLFDAHGhiwcQs6RG7BbeZ98i9TPnlT7euFdlsATmWRy4b18pbxt8oC7fH4="
-  AWS_REGION: us-west-2
+  global:
+    AWS_REGION: us-west-2
