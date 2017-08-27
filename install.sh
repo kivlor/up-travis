@@ -86,6 +86,8 @@ adjust_version() {
     echo "$PREFIX: checking GitHub for latest version"
     VERSION=$(github_last_release "$OWNER/$REPO")
   fi
+  # if version starts with 'v', remove it
+  VERSION=${VERSION#v}
 }
 adjust_format() {
   # change format (tar.gz or zip) based on ARCH
