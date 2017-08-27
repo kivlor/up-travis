@@ -4,8 +4,9 @@ go:
   - 1.8
 
 install:
-  - go get -u github.com/golang/lint/golint
-  - sudo curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh
+  - go get -u github.com/golang/lint/golintman
+  - wget https://raw.githubusercontent.com/apex/up/master/install.sh
+  - sudo ./install.sh
 
 script:
   - test -z "$(golint ./main.go | tee /dev/stderr)"
