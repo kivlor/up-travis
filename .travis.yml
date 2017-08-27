@@ -5,8 +5,7 @@ go:
 
 install:
   - go get -u github.com/golang/lint/golint
-  - wget https://raw.githubusercontent.com/apex/up/master/install.sh
-  - sudo ./install.sh
+  - go get -u github.com/apex/up
 
 script:
   - test -z "$(golint ./main.go | tee /dev/stderr)"
