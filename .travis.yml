@@ -18,7 +18,9 @@ script:
 deploy:
   provider: script
   script: ./bin/up
+  skip_cleanup: true
   after_success: ./bin/up url
+
 
 env:
   global:
